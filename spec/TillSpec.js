@@ -33,7 +33,7 @@ describe("HipsterTill", function(){
 		})
 	 });
 
-	describe('gives a price of', function(){
+	describe('calculate a price of', function(){
 		it('one Tea', function(){
 			till.addOrder("Tea", 1);
 			expect(till.totalPrice()).toEqual(3.65);
@@ -49,6 +49,14 @@ describe("HipsterTill", function(){
 			till.addOrder("Tiramisu", 1);
 			expect(till.totalPrice()).toEqual(15.05);
 			
+		})
+	});
+
+	describe('can calculate', function(){
+		it('a tax', function(){
+			till.addOrder("Tea", 2);
+			till.addOrder("Tiramisu", 1);
+			expect(till.tax()).toEqual(1.62);
 		})
 	})
 })

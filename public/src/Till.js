@@ -48,3 +48,10 @@ HipsterTill.prototype.totalPrice = function() {
    }
     return this.total
 };
+
+HipsterTill.prototype.tax = function() {
+	var total = till.totalPrice();
+	var tax = (total * 0.0864).toFixed(2)
+	return Number(tax)
+};
+
