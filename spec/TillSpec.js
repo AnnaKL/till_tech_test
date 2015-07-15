@@ -39,7 +39,7 @@ describe("HipsterTill", function(){
 			expect(till.totalPrice()).toEqual(3.65);
 		})
 
-		it('two Tea', function(){
+		it('two Teas', function(){
 			till.addOrder("Tea", 2);
 			expect(till.totalPrice()).toEqual(7.3);
 		})
@@ -57,6 +57,15 @@ describe("HipsterTill", function(){
 			till.addOrder("Tea", 2);
 			till.addOrder("Tiramisu", 1);
 			expect(till.tax()).toEqual(1.62);
+		})
+	})
+
+	describe('accepts', function(){
+		it('a payment', function(){
+			till.addOrder("Tea", 1);
+			till.addOrder("Tiramisu", 1);
+			till.payment(15.05);
+			expect(till.total).toEqual(0);
 		})
 	})
 })

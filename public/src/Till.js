@@ -55,3 +55,8 @@ HipsterTill.prototype.tax = function() {
 	return Number(tax)
 };
 
+HipsterTill.prototype.payment = function(cash) { 
+	till.total = cash - till.totalPrice();
+	return till.total
+};
+
